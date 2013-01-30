@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:simpleType name="nonEmptyString">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:element name="address">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="host" minOccurs="1" maxOccurs="1" />
+				<xs:element ref="port" minOccurs="1" maxOccurs="1" />
+				<xs:element ref="protocol" minOccurs="0" maxOccurs="1" />
+
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="jmsConfig">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="destinationType" minOccurs="1"
+					maxOccurs="1" />
+				<xs:element ref="targetDestination" minOccurs="1"
+					maxOccurs="1" />
+				<xs:element ref="replyDestination" minOccurs="0"
+					maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="addresses">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="address" minOccurs="1" maxOccurs="unbounded" />
+
+			</xs:sequence>
+		</xs:complexType>
+
+	</xs:element>
+
+	<xs:element name="baseUri" type="xs:string">
+	</xs:element>
+
+	<xs:element name="channel">
+		<xs:complexType>
+
+			<xs:sequence>
+				<xs:element ref="addresses" minOccurs="1" maxOccurs="1" />
+				<xs:element ref="baseUri" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="serviceType" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="connection" minOccurs="0" maxOccurs="1" />
+			</xs:sequence>
+
+			<xs:attribute name="id" type="xs:NMTOKEN" use="required">
+			</xs:attribute>
+
+		</xs:complexType>
+
+	</xs:element>
+
+
+	<xs:element name="ChannelConfig">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="channels" minOccurs="1" maxOccurs="1" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="channels">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="channel" maxOccurs="unbounded"
+					minOccurs="1">
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="connection">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="connectionTimeout" minOccurs="0"
+					maxOccurs="1" />
+				<xs:choice>
+					<xs:element ref="recieveTimeout" minOccurs="0"
+						maxOccurs="1" />
+					<xs:element ref="receiveTimeout" minOccurs="0"
+						maxOccurs="1" />
+				</xs:choice>
+				<xs:element ref="idleTimeout" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="keepAlive" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="maxThreads" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="allowChunking" minOccurs="0" maxOccurs="1" />
+				<xs:element ref="jmsConfig" minOccurs="0" maxOccurs="1" />
+
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="connectionTimeout" type="nonEmptyString">
+	</xs:element>
+
+	<xs:element name="destinationType" type="nonEmptyString">
+	</xs:element>
+
+	<xs:element name="targetDestination" type="nonEmptyString">
+	</xs:element>
+
+	<xs:element name="replyDestination" type="nonEmptyString">
+	</xs:element>
+
+	<xs:element name="host" type="nonEmptyString">
+	</xs:element>
+
+	<xs:element name="idleTimeout" type="nonEmptyString">
+	</xs:element>
+
+	<xs:element name="keepAlive" type="nonEmptyString">
+	</xs:element>
+
+	<xs:element name="maxThreads" type="nonEmptyString">
+	</xs:element>
+
+	<xs:element name="allowChunking" type="nonEmptyString">
+	</xs:element>
+
+	<xs:element name="port" type="nonEmptyString">
+	</xs:element>
+
+	<xs:element name="protocol" type="nonEmptyString">
+	</xs:element>
+
+	<xs:element name="recieveTimeout" type="nonEmptyString">
+	</xs:element>
+
+	<xs:element name="receiveTimeout" type="nonEmptyString">
+	</xs:element>
+
+	<xs:element name="serviceType" type="nonEmptyString">
+	</xs:element>
+
+</xs:schema>
