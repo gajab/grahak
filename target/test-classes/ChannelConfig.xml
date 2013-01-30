@@ -1,8 +1,0 @@
-<connection>
-	<connectionTimeout>30000</connectionTimeout>
-	<!--<recieveTimeout>60000</recieveTimeout>-->
-	<idleTimeout>5000</idleTimeout>
-	<keepAlive>true</keepAlive>
-	<!--<maxThreads>25</maxThreads>-->
-	<allowChunking>true</allowChunking>
-</connection>
