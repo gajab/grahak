@@ -79,8 +79,7 @@ public class GrahakAnnotationBeanPostProcessor extends
 			//autowire was not successful, inject the CXF proxy
 			if(field.get(bean) == null)
 			{
-				if(log.isDebugEnabled())
-					log.debug("Creating cxf proxy for " + field.getName());
+				log.debug("Creating cxf proxy for {} ", field.getName());
 				
 				Grahak serviceProxy = field.getAnnotation(Grahak.class);
 				Object proxy = null;
@@ -88,7 +87,15 @@ public class GrahakAnnotationBeanPostProcessor extends
 				
 				if(channelName != null && ! channelName.isEmpty())
 				{
+                    try
+                    {
+                     log.debug("[ServiceName = {} ]",serviceProxy.serviceName());
 					 proxy = proxyFactory.create(channelName, ClientProxyFactoryBeanFactory.ENDPOINT_TYPE.CHANNEL, serviceProxy.serviceName(), fieldType);
+                    }
+                    catch (Exception e)
+                    {
+                        e.printStackTrace();
+                    }
 				}
 				else
 				{

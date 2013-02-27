@@ -2,6 +2,16 @@
 <ChannelConfig>
 	<channels>		
         
+		<channel id="EchoServiceChannel">
+                        <addresses>
+                                <address>
+                                        <host>localhost</host>
+                                        <port>8080</port>
+                                        <protocol>local</protocol>
+                                </address>
+                        </addresses>                      
+                        <baseUri>/test/echo-jws-service/services</baseUri>
+        </channel>		
 		<channel id="EchoChannel">
                         <addresses>
                                 <address>

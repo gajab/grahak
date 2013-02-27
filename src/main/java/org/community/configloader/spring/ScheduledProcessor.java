@@ -16,10 +16,7 @@ public class ScheduledProcessor {
 	//this job runs after every 5 minutes
 	//@Scheduled(fixedDelay = 5*60*1*1000)
 	public void configUpdateWatcher() {
-		System.out.println(" cicking in ------------------------------------------------- ");
+		System.out.println("[checking for file updates]");
 		configUpdateWatcher.work();
 	}
-
-	
-
 }

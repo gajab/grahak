@@ -62,7 +62,14 @@ public class ApplyHttpClientPolicyInterceptor extends AbstractPhaseInterceptor<M
 			return;
 		}
 		
-		retryStrategyFeature.setMaxNumberOfRetries(channel.getConnection().getMaxNumberOfRetries());
+        if (retryStrategyFeature != null)
+        {
+		    retryStrategyFeature.setMaxNumberOfRetries(channel.getConnection().getMaxNumberOfRetries());
+        }
+        else
+        {
+            log.debug("{}","[WARNING: not setting retryStrategyFeature]");
+        }
 		//get selected conduit
 		Exchange exchange = message.getExchange();
 		HTTPConduit conduit = (HTTPConduit) exchange.getConduit(message);
