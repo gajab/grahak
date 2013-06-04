@@ -9,7 +9,7 @@ http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
     <import resource="classpath:META-INF/cxf/cxf-servlet.xml" /> 
 	<import resource="classpath:/config/grahak-context.xml" />
 
-    <context:component-scan base-package="org.community.grahak.spring.bean.factory.annotation"/> 
+    <context:component-scan base-package="org.community.grahak"/> 
     <!-- Reference: http://cxf.apache.org/docs/local-transport.html -->
 	<jaxws:endpoint name="Echo"
         address="local://localhost:8080/test/echo-jws-service/services"

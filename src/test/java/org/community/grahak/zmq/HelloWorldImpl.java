@@ -13,19 +13,19 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
-package org.org.apache.cxf.hello_world_zmq;
+package org.community.grahak.zmq;
 
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.ws.soap.Addressing;
 
-@WebService(targetNamespace = "http://cxf.apache.org/hello_world_zmq", serviceName = "HelloWorldService", portName = "HelloWorldPort")
-@Addressing(enabled = true)
-public class HelloWorldImpl {
+import org.springframework.stereotype.Component;
 
-    @WebResult(name = "greeting")
+@Component
+public class HelloWorldImpl implements HelloWorld{
+
     public String sayHello(@WebParam(name = "firstName") String firstName) {
-        return "Hello " + firstName;
+        return "Hello123 " + firstName;
     }
 }

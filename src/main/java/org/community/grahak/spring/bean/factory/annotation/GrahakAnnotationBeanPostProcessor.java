@@ -61,20 +61,21 @@ public class GrahakAnnotationBeanPostProcessor extends
 			Class<?> fieldType = field.getType();
 			Object autowiredObject = null;
 			//first try to autowire based on type implemented
-			try
-			{
-				if(log.isDebugEnabled())
-					log.debug("try to autowire the field " + field.getName());
-
-				autowiredObject = applicationContext.getBean(fieldType);
-				field.set(bean, autowiredObject);
-			}
-			catch(RuntimeException ex)
-			{
-				//ignore exception
-				//if(log.isDebugEnabled())
-				//	log.debug("Could not autowired type " + fieldType + " try with CXF proxy ... ");
-			}
+			//TODO : temp comment while doing zmq
+//			try
+//			{
+//				if(log.isDebugEnabled())
+//					log.debug("try to autowire the field " + field.getName());
+//
+//				autowiredObject = applicationContext.getBean(fieldType);
+//				field.set(bean, autowiredObject);
+//			}
+//			catch(RuntimeException ex)
+//			{
+//				//ignore exception
+//				//if(log.isDebugEnabled())
+//				//	log.debug("Could not autowired type " + fieldType + " try with CXF proxy ... ");
+//			}
 			
 			//autowire was not successful, inject the CXF proxy
 			if(field.get(bean) == null)
