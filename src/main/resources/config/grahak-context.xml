@@ -142,6 +142,14 @@ Only one AsyncAnnotationBeanPostProcessor may exist within the context.
 		</property>
 	</bean>
 
+	<bean class="org.apache.cxf.transport.zmq.ZMQTransportFactory" lazy-init="true">
+		<property name="transportIds">
+			<list>
+                <value>http://cxf.apache.org/transports/zmq</value>
+ 			</list>
+		</property>
+	</bean>
+	
 	<bean class="org.apache.cxf.transport.local.LocalTransportFactory" lazy-init="true">
 		<property name="transportIds">
 			<list>
@@ -183,7 +191,7 @@ Only one AsyncAnnotationBeanPostProcessor may exist within the context.
 	                <entry key="features">
 	                    <list>
 	                        <ref bean="cluster"/>
-	                        <ref bean="retryStrategy"/>
+<!-- 	                        <ref bean="retryStrategy"/> -->
 	                        
 	                    </list>
 	                </entry>
@@ -278,5 +286,7 @@ Only one AsyncAnnotationBeanPostProcessor may exist within the context.
 	<bean id="mqConnecttionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
 <!-- 				<property name="brokerURL" value="tcp://localhost:61616" /> -->
 	</bean>
+	
+	
 
 </beans>

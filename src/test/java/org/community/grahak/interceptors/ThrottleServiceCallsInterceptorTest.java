@@ -9,7 +9,7 @@ import org.apache.cxf.interceptor.Fault;
 import org.apache.cxf.interceptor.InterceptorChain;
 import org.apache.cxf.message.Message;
 import org.apache.cxf.phase.PhaseInterceptorChain;
-import org.apache.cxf.phase.PhaseManagerImpl;
+import org.apache.cxf.bus.managers.PhaseManagerImpl;
 import org.apache.cxf.transport.http.HTTPConduit;
 import org.community.grahak.TestUtils;
 import org.community.grahak.channel.Channel;
@@ -58,7 +58,7 @@ public class ThrottleServiceCallsInterceptorTest
 	@Test
 	public void testParllelServiceCall() throws Exception {	
 
-		InterceptorChain chain = new PhaseInterceptorChain((new PhaseManagerImpl()).getOutPhases());
+		//InterceptorChain chain = new PhaseInterceptorChain((new PhaseManagerImpl()).getOutPhases());
 		message.setInterceptorChain(chain);
 		Exception exception = null;
 

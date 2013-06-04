@@ -8,12 +8,30 @@
 	<name>grahak</name>
 	<url>http://maven.apache.org</url>
 	<properties>
-		<cxf.version>2.5.2</cxf.version>
+		<cxf.version>2.7.2</cxf.version>
 		<spring.version>3.0.5.RELEASE</spring.version>
 	</properties>
 	<dependencies>
 		<!--<dependency> <groupId>org.community</groupId> <artifactId>configloader</artifactId> 
 			<version>1.2-SNAPSHOT</version> </dependency> -->
+		 <dependency>
+            <groupId>org.zeromq</groupId>
+            <artifactId>zmq</artifactId>
+            <version>3.2.2</version>
+            <scope>compile</scope>
+        </dependency>
+		<dependency>
+			 <groupId>org.apache.cxf</groupId>
+    		<artifactId>cxf-rt-transports-zeromq</artifactId>
+    		<version>1.1-SNAPSHOT</version>
+		</dependency>	
+		<dependency>
+			 <groupId>org.apache.cxf</groupId>
+    		<artifactId>cxf-rt-features-clustering</artifactId>
+    		<version>${cxf.version}</version>
+		</dependency>
+		
+		
 		<dependency>
 			<groupId>org.apache.activemq</groupId>
 			<artifactId>activemq-all</artifactId>
@@ -245,6 +263,13 @@
 
 	<build>
 		<plugins>
+			  <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <argLine>-Djava.library.path=/Users/rkarwa/Tools/zeromq/lib</argLine>
+                </configuration>
+            </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -435,4 +460,11 @@
 
 		</plugins>
 	</reporting>
+	
+        <repositories>
+        <repository>
+            <id>zeromq-local-repo</id>
+            <url>file://${project.basedir}/lib</url>
+        </repository>
+    </repositories>
 </project>

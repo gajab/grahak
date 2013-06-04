@@ -14,6 +14,7 @@ import org.apache.cxf.message.Message;
 import org.apache.cxf.message.MessageImpl;
 import org.apache.cxf.service.model.EndpointInfo;
 import org.apache.cxf.transport.http.HTTPConduit;
+import org.apache.cxf.transport.http.URLConnectionHTTPConduit;
 import org.community.grahak.channel.Address;
 import org.community.grahak.channel.Channel;
 import org.community.grahak.channel.ConnectionInfo;
@@ -67,7 +68,7 @@ public class TestUtils {
 	{
 		HTTPConduit conduit = null;
 		try {
-			conduit = new HTTPConduit(bus, new EndpointInfo());
+			conduit = new URLConnectionHTTPConduit(bus, new EndpointInfo());
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

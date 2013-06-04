@@ -297,6 +297,12 @@ public class Channel {
 	
 	public void initWithEndpointURL(String endPoint) {
 		
+		if (endPoint.startsWith("zmq"))
+		{
+			System.out.println("[Detected zmq endpoint, returning..]");
+			return;
+		}
+		
 		Address address = this.getAddressFromEndPoint(endPoint);
 		address.setPrimary(true);
 		

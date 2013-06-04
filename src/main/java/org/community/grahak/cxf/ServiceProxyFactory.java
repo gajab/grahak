@@ -17,10 +17,13 @@ import org.apache.cxf.message.Message;
 import org.apache.cxf.transport.jms.JMSConfigFeature;
 import org.apache.cxf.transport.jms.JMSConfiguration;
 import org.apache.cxf.transport.jms.spec.JMSSpecConstants;
+import org.apache.cxf.transport.zmq.ZMQConfigFeature;
+import org.apache.cxf.transport.zmq.ZMQConfiguration;
 import org.apache.cxf.interceptor.InterceptorProvider;
 import org.apache.cxf.clustering.RetryStrategy;
 import org.apache.cxf.endpoint.AbstractEndpointFactory;
 import org.apache.cxf.feature.AbstractFeature;
+import org.apache.cxf.feature.Feature;
 import org.apache.cxf.interceptor.Interceptor;
 import org.apache.cxf.jaxrs.client.Client;
 import org.apache.cxf.jaxrs.client.ClientConfiguration;
@@ -161,7 +164,7 @@ public class ServiceProxyFactory {
     {
         // this should be one of SOAP,XML,LOCAL
         // the channel serviceType should match above
-        String protocol = channel.getPrimaryAddress().getProtocol();
+        String protocol = "zmq";//channel.getPrimaryAddress().getProtocol();
         String serviceType = channel.getServiceType().getValue();
         String mapFromStr = "local".equals(protocol)? protocol : serviceType;
 
@@ -200,7 +203,7 @@ public class ServiceProxyFactory {
             feature.setJmsConfig(jmsConfig);
 
             
-        	List<AbstractFeature> features = etJaxWsProxyFactoryBean.getFeatures();
+        	List<Feature> features = etJaxWsProxyFactoryBean.getFeatures();
         	features.add(feature);
         	etJaxWsProxyFactoryBean.setFeatures(features);
         	
@@ -211,9 +214,20 @@ public class ServiceProxyFactory {
         	jmsConfig.setConnectionFactory(jmsConnectionFactory);
            
         }
+        if("zmq".equals(protocol))
+        {
+        	ZMQConfigFeature feature = new ZMQConfigFeature();
+        	ZMQConfiguration config = new ZMQConfiguration();
+        	config.setIoThreads(2);
+        	feature.setZmqConfig(config);
+        	List<Feature> features = etJaxWsProxyFactoryBean.getFeatures();
+        	features.add(feature);
+        	etJaxWsProxyFactoryBean.setFeatures(features);
+        	
+        }
         
-	    String url = channel.getPrimaryEndpointUrl(); // for jms it will return jms://
-	    etJaxWsProxyFactoryBean.setAddress(url);
+	   // String url = channel.getPrimaryEndpointUrl(); // for jms it will return jms://
+	    etJaxWsProxyFactoryBean.setAddress("zmq:(tcp://localhost:9000?socketOperation=connect&socketType=req)");
 	    
 	    etJaxWsProxyFactoryBean.setServiceClass(serviceClass); //TODO: added new test
 	    
