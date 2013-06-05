@@ -127,8 +127,21 @@ public class Channel {
 		{
 			return "jms://";
 		}
+		if("zmq".equals(address.getProtocol()))
+		{
+			return getZMQEndpointUrl(address);
+		}
+		
 		
 		return getEndpointUrl(address);
+		
+	}
+	
+	
+	public String getZMQEndpointUrl(Address address)
+	{
+		//zmq:(tcp://localhost:9000?socketOperation=connect&socketType=req)
+		return address.getProtocol() + ":(tcp://" + address.getHost() + ":" + address.getPort()+ "?socketOperation=connect&socketType=req)"; 
 		
 	}
 	
@@ -292,16 +305,11 @@ public class Channel {
 		address.setHost(host);
 		address.setPort(port);
 		
+		
 		return address;
 	}
 	
 	public void initWithEndpointURL(String endPoint) {
-		
-		if (endPoint.startsWith("zmq"))
-		{
-			System.out.println("[Detected zmq endpoint, returning..]");
-			return;
-		}
 		
 		Address address = this.getAddressFromEndPoint(endPoint);
 		address.setPrimary(true);

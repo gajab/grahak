@@ -164,7 +164,7 @@ public class ServiceProxyFactory {
     {
         // this should be one of SOAP,XML,LOCAL
         // the channel serviceType should match above
-        String protocol = "zmq";//channel.getPrimaryAddress().getProtocol();
+        String protocol = channel.getPrimaryAddress().getProtocol();
         String serviceType = channel.getServiceType().getValue();
         String mapFromStr = "local".equals(protocol)? protocol : serviceType;
 
@@ -226,8 +226,9 @@ public class ServiceProxyFactory {
         	
         }
         
-	   // String url = channel.getPrimaryEndpointUrl(); // for jms it will return jms://
-	    etJaxWsProxyFactoryBean.setAddress("zmq:(tcp://localhost:9000?socketOperation=connect&socketType=req)");
+        String url = channel.getPrimaryEndpointUrl(); // for jms it will return jms://
+        System.out.println("ADDRESS " + url);
+	    etJaxWsProxyFactoryBean.setAddress(url);
 	    
 	    etJaxWsProxyFactoryBean.setServiceClass(serviceClass); //TODO: added new test
 	    

@@ -34,7 +34,9 @@ public class ZMQTester {
 		}).start();
 	}
 
-	private final static String address = "zmq:(tcp://localhost:9000?socketOperation=connect&socketType=req)";
+	//private final static String address = "zmq:(tcp://localhost:9000?socketOperation=connect&socketType=req)";
+	
+	private final static String address = "zmq://localhost:9000/";
 	@Grahak(endpoint = address)
 	HelloWorld zmqHelloWorldClient;
 
@@ -66,7 +68,9 @@ public class ZMQTester {
 			String reply = zmqHelloWorldClient.sayHello("Claude");
 			System.out.println("[Got ZMQ reply " + reply + "]");
 		} catch (Exception e) {
+			
 			System.out.println("EXCEPTION " + e.getMessage());
+			e.printStackTrace();
 		}
 
 	}
