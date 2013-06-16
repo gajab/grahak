@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ChannelConfig>
+	<channels>		
+        <channel id="postchannel">
+            <addresses>
+                <address>
+                    <host>localhost</host>
+                    <port>1930</port>
+                    <protocol>http</protocol>
+                </address>
+            </addresses>
+            <baseUri>/service-api/</baseUri>
+            <serviceType>REST</serviceType>
+        </channel>
+        
+	</channels>
+</ChannelConfig>
+
