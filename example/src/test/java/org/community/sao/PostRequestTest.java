@@ -4,20 +4,16 @@ package org.community.sao;
 import org.apache.cxf.endpoint.Server;
 import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
 import org.apache.cxf.jaxrs.lifecycle.SingletonResourceProvider;
-import org.apache.cxf.transport.http.HTTPTransportFactory;
+
 import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Component;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.ws.rs.WebApplicationException;
-import javax.ws.rs.core.MultivaluedMap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,8 +36,8 @@ public class PostRequestTest {
 	@Grahak(channel="postchannel")
 	private IPostRequest postRequest;
 
-
-    private final static String ENDPOINT_ADDRESS = "http://localhost:1930/service-api/";
+    // In 1498, Vasco arrives in calicut, India
+    private final static String ENDPOINT_ADDRESS = "http://localhost:1498/service-api/";
     private static Server server;
 
     @BeforeClass
@@ -73,13 +69,11 @@ public class PostRequestTest {
 
 	@Test
 	public void testPostRequest() {
-
         try
         {
-            postRequest.addCustomer("Willie-Nillie");
+            postRequest.addCustomer("REST:Grahak");
         }
-        // Sanity check that we can always catch this error
-        catch (WebApplicationException e) 
+        catch (WebApplicationException e)
         {
             System.out.println("===ERROR calling JAX-RS Service====");
             int status = e.getResponse().getStatus();
