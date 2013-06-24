@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd"> 
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"> 
+
+    <!--
+    <appender name="Console" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d [%t] %-5p %c{1} (%F:%L)%m%n"/>
+		</layout>
+	</appender>
+    -->
+
+    <appender name="testLog" class="org.apache.log4j.FileAppender">
+             <param name="File" value="logs/test.log" />
+             <param name="Append" value="false" />
+             <layout class="org.apache.log4j.PatternLayout">
+                 <param name="ConversionPattern" value="%d [%t] %-5p %c{1} (%F:%L)%m%n"/>
+             </layout>
+    </appender>
+
+	
+    <logger name="org.community">
+		<level value="trace"/>
+	</logger>
+    <logger name="org.springframework"> 
+		<level value="trace"/>
+	</logger>
+    <logger name="org.mortbay.jetty">
+		<level value="info"/>
+	</logger>
+    <logger name="org.apache.cxf.interceptor.LoggingInInterceptor">
+        <level value="debug"/>
+    </logger>
+	<logger name="org.apache.cxf">
+		<level value="trace"/>
+	</logger>
+	<root>
+		<level value="warn"/>
+		<appender-ref ref="testLog"/>
+	</root>
+</log4j:configuration>
+

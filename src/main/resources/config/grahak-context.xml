@@ -217,11 +217,13 @@ Only one AsyncAnnotationBeanPostProcessor may exist within the context.
 	        </property>
 	        <property name="REST">
 	            <map>
+                    <!--
 	                <entry key="features">
 	                	<list>
 	                		<ref bean="retryStrategy"/>
 	                	</list>
 	                </entry>
+                    -->
 	                <entry key="inInterceptors">
 	                    <list>
 	                        <!-- Auditor Interceptors -->

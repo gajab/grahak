@@ -12,8 +12,6 @@
 		<spring.version>3.0.5.RELEASE</spring.version>
 	</properties>
 	<dependencies>
-		<!--<dependency> <groupId>org.community</groupId> <artifactId>configloader</artifactId> 
-			<version>1.2-SNAPSHOT</version> </dependency> -->
 		<dependency>
 			<groupId>org.zeromq</groupId>
 			<artifactId>zmq</artifactId>
@@ -236,12 +234,6 @@
 			<version>${cxf.version}</version>
 			<scope>test</scope>
 		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.eclipse.jetty</groupId> -->
-<!-- 			<artifactId>jetty-server</artifactId> -->
-<!-- 			<version>7.2.0.v20101020</version> -->
-<!-- 			<scope>test</scope> -->
-<!-- 		</dependency> -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-io</artifactId>

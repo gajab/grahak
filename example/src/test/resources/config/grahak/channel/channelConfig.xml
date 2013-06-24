@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ChannelConfig>
+	<channels>		
+        <channel id="postchannel">
+            <addresses>
+                <address>
+                    <host>localhost</host>
+                    <port>1498</port>
+                    <protocol>http</protocol>
+                </address>
+            </addresses>
+            <baseUri>/service-api/</baseUri>
+            <serviceType>REST</serviceType>
+        </channel>
+        <channel id="soapchannel">
+            <addresses>
+                <address>
+                    <host>localhost</host>
+                    <port>1612</port>
+                    <protocol>http</protocol>
+                </address>
+            </addresses>
+            <baseUri>/service-api/</baseUri>
+        </channel>
+        <channel id="echochannel">
+            <addresses>
+                <address>
+                    <host>localhost</host>
+                    <port>1757</port>
+                    <protocol>http</protocol>
+                </address>
+            </addresses>
+            <baseUri>/service-api/</baseUri>
+        </channel>
+        
+	</channels>
+</ChannelConfig>
+
