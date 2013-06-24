@@ -1,0 +1,4 @@
+#NOTE: This is an internal implementation file, its format can be changed without prior notice.
+#Mon Jun 17 13:03:51 PDT 2013
+cxf-rt-transports-zeromq-1.2-SNAPSHOT.pom>=
+cxf-rt-transports-zeromq-1.2-SNAPSHOT.jar>=
