@@ -23,7 +23,7 @@
  http://cxf.apache.org/core 
  http://cxf.apache.org/schemas/core.xsd">
 
-<!-- TODO: this requires for @Async but give troubles like iTrack:NEO-106
+<!-- TODO: this requires for @Async but give troubles like 
 getting exception org.springframework.beans.factory.parsing.BeanDefinitionParsingException: Configuration problem: 
 Only one AsyncAnnotationBeanPostProcessor may exist within the context. 
  -->
