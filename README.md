@@ -16,6 +16,7 @@ grahak
 * Roadmap
  - support for AMQP/AMQPS protocol
  - support client side load-balancing
+ - support true asynchronous calling pattern
+ - support light-weight esb
 
-
-contact <b>Rahul, cogitate</b> at karwa.rahul@gmail.com, monish.unni@gmail.com
+contact <b>Rahul, cogitate</b> at karwa.rahul@gmail.com, dhyanchand@users.noreply.github.com
