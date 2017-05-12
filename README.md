@@ -18,5 +18,7 @@ grahak
  - support client side load-balancing
  - support true asynchronous calling pattern
  - support light-weight esb
+ - support service discovery
+ - support reactive 
 
 contact <b>Rahul, cogitate</b> at karwa.rahul@gmail.com, dhyanchand@users.noreply.github.com
